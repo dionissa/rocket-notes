@@ -13,6 +13,7 @@ export function NewNotecard() {
 
     function handleContentChange(event: ChangeEvent<HTMLTextAreaElement>) {
       setContent(event.target.value)
+      console.log(content)
       if (event.target.value === '') {
         setShouldShowOnboarding(true)
       }
