@@ -1,20 +1,21 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import React from 'react'
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { X } from 'lucide-react'
 
+interface Note {
+  id: string,
+  date: Date,
+  content: string
+}
+
 interface NoteCardProps {
-  note: {
-    id: string,
-    date: Date
-    content: string
-  }
+  note: Note,
   onNoteDeleted: (id: string) => void
 }
 
-export function NoteCard({note, onNoteDeleted}) {
-    return (
+export function NoteCard({ note, onNoteDeleted }: NoteCardProps) {
+  return (
        <Dialog.Root>
          <Dialog.Trigger className='rounded-md flex flex-col text-left bg-slate-800 p-5 gap-3 overflow-hidden outline-none relative hover:ring-2 hover:ring-slate-600 focus:ring-2 focus:ring-lime-400'>
         <span className="text-sm font-medium text-slate-300">
